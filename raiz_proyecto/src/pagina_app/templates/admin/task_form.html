@@ -1,0 +1,30 @@
+{% extends 'base_template.html' %}
+{% block content %}
+  <h1>New task</h1>
+  <form method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="form-field">
+      {{ form.title.label }}
+      {{ form.title(class_='input') }}
+      {% for e in form.title.errors %}<div class="error">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="form-field">
+      {{ form.description.label }}
+      {{ form.description(class_='textarea') }}
+      {% for e in form.description.errors %}<div class="error">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="form-field-inline">
+      {{ form.priority.label }}
+      {{ form.priority(class_='input', min=1, max=5) }}
+      {% for e in form.priority.errors %}<div class="error">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="form-field-inline">
+      {{ form.due_date.label }}
+      {{ form.due_date(class_='input', type='date') }}
+      {% for e in form.due_date.errors %}<div class="error">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="form-actions">
+      {{ form.submit(class_='btn') }}
+    </div>
+  </form>
+{% endblock %}

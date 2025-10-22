@@ -1,0 +1,24 @@
+[project]
+name = "todo-flask-app"
+version = "0.1.0"
+description = "Simple To-Do List web app built with Flask, Flask-Login, Flask-WTF, SQLAlchemy, and PostgreSQL."
+authors = [{ name = "Student" }]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "Flask>=3.1.2",
+    "Flask-WTF>=1.2.2",
+    "Flask-Login>=0.6.3",
+    "Flask-SQLAlchemy>=3.1.1",
+    "psycopg[binary]>=3.2.10",
+    "python-slugify>=8.0.4",
+    "email-validator>=2.3.0"
+]
+
+[tool.rye]
+managed = true
+virtual = true
+lock = true
+
+[tool.rye.scripts]
+start = "python -m todo_app.run"

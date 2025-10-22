@@ -1,0 +1,14 @@
+{% extends 'base_template.html' %}
+{% block content %}
+  <article class="task">
+    <h1>{{ task.title }}</h1>
+    <p class="muted">Created: {{ task.created_at }} • Priority: {{ task.priority }} {% if task.due_date %}• Due: {{ task.due_date }}{% endif %}</p>
+    {% if task.description %}
+      <div class="content">
+        <p>{{ task.description }}</p>
+      </div>
+    {% else %}
+      <p class="muted">No description provided.</p>
+    {% endif %}
+  </article>
+{% endblock %}
